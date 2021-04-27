@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hanwen {
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="test"></div>
+
+    <script src="../JS/babel.min.js"></script>
+    <script src="../JS/react.development.js"></script>
+    <script src="../JS/react-dom.development.js">
+        //1.jsx不能带引号 
+        //2.在标签中想用js方法的时候要用{}包起来
+        //3.标签中样式的类名不能用class，要用className
+        //4.标签的内联样式中要用style={{key:value}}的形式去写
+        //5.要有一个根标签
+        //6.标签必须闭合
+        //7.标签的首字母{1.如果首字母是小写，则转化为html标签，如果没有同名标签，则报错2.如果首字母是大写，react则会去渲染相应组件，如果组件没有定义，则报错}
+    </script>
+    <script type="text/babel">
+
+        const VDOM = (
+        <h1>chw dhr hahaha <span>wakakak</span></h1>); const a = 'asdfFGH' ; const b = (
+        <h1 className='hanwen' style={{color: 'red'}}> {a.toUpperCase()}
+            <jkl>asd</jkl>
+        </h1>); ReactDOM.render(b,document.getElementById('test') )
+    </script>
+
+</body>
+
+</html>
