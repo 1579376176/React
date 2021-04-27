@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsx的小练习</title>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <div id="test"></div>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script src="../JS/react.development.js"></script>
+    <script src="../JS/react-dom.development.js"></script>
+    <script src="../JS/babel.min.js"></script>
+    <script type="text/babel">
+        const a = [1,2,3,4,5]; const b = (
+        <div>
+            { a.map((item,index)=>{ return (
+            <li key={index}> {item}</li>) }) }
+        </div>) ; ReactDOM.render(b,document.getElementById('test'))
+    </script>
+</body>
+
+</html>
