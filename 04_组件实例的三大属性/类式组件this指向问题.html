@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类式组件中的this指向问题</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script src="../JS/babel.min.js"></script>
+    <script src="../JS/react.development.js"></script>
+    <script src="../JS/react-dom.development.js"></script>
+    <script type="text/babel">
+    class MyComponent extends React.Component{
+        constructor(props){
+            super(props)
+            this.func = this.func.bind(this);
+            this.state={isMan:true}
+            //这里的this指向MyComponent
+        }
+        render(){
+            //这里的this也指向MyComponent
+            return <h1 onClick={this.func}>崔瀚文是{this.state.isMan?'大好人':'超级大好人'}哈哈哈！！！</h1>
+        }
+        func(){
+            const isMan = this.state.isMan;
+            this.setState({isMan:!isMan})
+            //在这里创建的方法不能有function关键字，并且这个方法是建立在MyComponent的原型上的，在这个方法内的this指向的是undefined（因为react使用严格模式）
+        }
+    }
+    ReactDOM.render(<MyComponent/>,document.getElementById('test'))
+    </script>
+</body>
+</html>

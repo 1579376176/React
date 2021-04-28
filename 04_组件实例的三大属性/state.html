@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>state</title>
+    <title>state    </title>    
 </head>
 
 <body>
@@ -14,9 +13,28 @@
     <script src="../JS/react-dom.development.js"></script>
     <script src="../JS/babel.min.js"></script>
     <script type="text/babel">
-        class MyComponent extends React.Component{ constructor(props) { super(props); this.state = { isHot:true } }; render(){ return (
-        <h2>今天天气很{this.state.isHot?'炎热':'凉爽'}</h2>) } }; ReactDOM.render(
-        <MyComponent/>,document.getElementById('test'))
+        class MyComponent extends React.Component{ 
+            constructor(props) { 
+                super(props); 
+                this.state = { isHot:false } 
+                this.demo = this.demo.bind(this)
+                console.log('constructor:',this);
+            }; 
+                render(){ 
+                    console.log('render:',this);
+                    return <h2 onClick={this.demo}>今天天气很{this.state.isHot?'炎热':'凉爽'}</h2> 
+                }; 
+            demo() {
+              //  console.log(MyComponent);
+            //   console.log(this.state.isHot);
+            //   this.state.isHot=!this.state.isHot;
+            this.setState({isHot:!this.state.isHot})
+            }
+            }; 
+            
+            ReactDOM.render(<MyComponent/>,document.getElementById('test'));
+
+            
     </script>
 </body>
 
