@@ -13,9 +13,10 @@
     <script src="../JS/react-dom.development.js"></script>
     <script type="text/babel">
     class MyComponent extends React.Component{
-        constructor(props){ 
-            super(props);//这里this指向MyComponent的原型对象
-        }
+        // constructor(props){ 
+        //     super(props);//这里this指向MyComponent的原型对象
+        // }
+        //直接在原型上赋值
         state = {isMan:true}
         render(){
             return <h1 onClick={this.func}>崔瀚文大好人哈哈哈{this.state.isMan?'真的':'一家的'}</h1>
