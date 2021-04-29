@@ -8,16 +8,27 @@
 </head>
 <body>
     <script>
-        var b=55
-        var aa={
-            b:1,
-            a:function () {
-                var b = 0;
-                console.log(this.b);
-            },
+        // var b=55
+        // var aa={
+        //     b:1,
+        //     a:function () {
+        //         var b = 0;
+        //         console.log(this.b);
+        //     },
 
-        };
-        aa.a.bind(window)()
+        // };
+        // aa.a.bind(window)()
+       
+        var b = 1999;
+        function a() {
+            // console.log(this);
+        }
+        var c = {
+            x:11,
+            c:this.x
+        }
+        console.dir(c)
+        console.log(c.c);
     </script>
 </body>
 </html>

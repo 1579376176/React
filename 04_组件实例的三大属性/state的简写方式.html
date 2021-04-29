@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>state的两种简写方式</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script src="../JS/babel.min.js"></script>
+    <script src="../JS/react.development.js"></script>
+    <script src="../JS/react-dom.development.js"></script>
+    <script type="text/babel">
+    class MyComponent extends React.Component{
+        constructor(props){ 
+            super(props);//这里this指向MyComponent的原型对象
+        }
+        state = {isMan:true}
+        render(){
+            return <h1 onClick={this.func}>崔瀚文大好人哈哈哈{this.state.isMan?'真的':'一家的'}</h1>
+        }
+        func = ()=>{
+            this.setState({isMan:!this.state.isMan})
+        }
+    }
+    ReactDOM.render(<MyComponent/>,document.getElementById('test'))
+    </script>
+</body>
+</html>
