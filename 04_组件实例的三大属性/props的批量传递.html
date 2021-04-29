@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>props的批量传递</title>
+</head>
+<body>
+    <div id="test"></div>
+    <div id="test1"></div>
+    <script src="../JS/babel.min.js"></script>
+    <script src="../JS/react.development.js"></script>
+    <script src="../JS/react-dom.development.js"></script>
+    <script type="text/babel">
+    class MyComponent extends React.Component{
+        render(){
+            const {name,age,sex} = this.props;
+            return (
+                <div>
+                        <ul>
+                        <li>姓名：{name}</li>
+                        <li>年龄：{age}</li>
+                        <li>性别：{sex}</li>
+                            </ul>    
+                </div>
+            )
+        }
+    }
+    const a = {name:'崔瀚文',age:18,sex:'男'}
+    const b = {name:'崔瀚文1',age:19,sex:'男'}
+    ReactDOM.render(<MyComponent {...a}/>,document.getElementById('test')) //其中的{..a}与原生JS中的不一样，这里的是由于babel和react才展开，并且只能在传参这里展开，在外面不能。
+    ReactDOM.render(<MyComponent {...b}/>,document.getElementById('test1'))
+    </script>
+</body>
+</html>
