@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>refs</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script src="../JS/babel.min.js"></script>
+    <script src="../JS/react.development.js"></script>
+    <script src="../JS/react-dom.development.js"></script>
+    <script type="text/babel">
+    class Demo extends React.Component{
+        fun=()=>{
+            // const a = document.getElementById('input1')
+            // alert(a.value)
+            console.log(this);
+        }
+        fun2=()=>{
+            alert(this.refs.input2.value)
+        }
+        render(){
+            return (
+                // <div>
+                //     <input id="input1" type="text" placeholder="点击按钮提示数据" /> 
+                //     <button onClick={this.fun}>点击</button>
+                //     <input type="text" />
+                // </div>这是原生写法
+                <div>
+                    <input type="text" ref="input1" placeholder="你点我啊你"/>
+                    <button ref="btn" onClick={this.fun}>点我啊啊啊</button>
+                    <input type="text" ref="input2" onBlur={this.fun2} placeholder="你别点我啊你"  />
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(<Demo/>,document.getElementById('test'))
+    </script>
+</body>
+</html>
