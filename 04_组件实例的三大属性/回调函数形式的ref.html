@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回调函数形式的ref</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script src="../JS/babel.min.js"></script>
+    <script src="../JS/react.development.js"></script>
+    <script src="../JS/react-dom.development.js"></script>
+    <script type="text/babel">
+    class MyComponent extends React.Component{
+        fun1 = ()=>{
+            console.log(this);
+alert(this.qqq.value)
+        }
+        ina=(currentNode)=>{this.qqq = currentNode}
+        render(){
+            return (
+                <div>
+                    <input ref={this.ina} onBlur={this.fun1} type="text"/></div>
+            )//这里，当页面更新的时候，会调用两次 第一次是null第二次是把DOM真放进去，这就是内联形式，而绑定函数形式就不会出现这个问题。绑定就是在外面写一个函数
+        }
+    }
+    ReactDOM.render(<MyComponent/>,document.getElementById('test'))
+    </script>
+</body>
+</html>
